@@ -4,13 +4,15 @@ import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import { DateTime } from "luxon";
 import PropertyService from "./PropertyServices";
 import PropertyValidator from "./PropertyValidator";
-export default class ExampleController {
+export default class PropertyController {
   private propertyService: PropertyService;
   private propertyValidator: PropertyValidator;
+
   constructor() {
     this.propertyService = new PropertyService();
     this.propertyValidator = new PropertyValidator();
   }
+
   public async uploadMedia(ctx: HttpContextContract) {
     const media = ctx.request.file("file");
     if (media) {
@@ -28,8 +30,13 @@ export default class ExampleController {
       return {
         link: upFile,
         name: fileName,
-        type: media.extname == "mp4" ? "video" : "image",
+        type: media.extname == "image",
       };
     }
+  }
+
+  public async postProperty(ctx: HttpContextContract) {
+    const payload = await this.propertyValidator.validatePostProperty(ctx);
+    return await this.propertyService.propertyPostService(payload, ctx);
   }
 }

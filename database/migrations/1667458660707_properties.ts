@@ -6,7 +6,7 @@ export default class extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments("id").primary();
-      table.string("propery_type", 255);
+      table.string("property_type", 255);
       table.boolean("is_selling").defaultTo(true);
       table.boolean("also_rent_it").defaultTo(true);
       table.boolean("from_owner").defaultTo(true);
@@ -18,7 +18,7 @@ export default class extends BaseSchema {
       table.integer("floor_area");
       table.integer("full_rooms");
       table.integer("half_rooms");
-      table.string("propery_address", 255);
+      table.string("property_address", 255);
       table.decimal("lat");
       table.decimal("long");
       table.string("thumbnail_image", 255);
