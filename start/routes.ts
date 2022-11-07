@@ -19,6 +19,7 @@
 */
 
 import Route from "@ioc:Adonis/Core/Route";
+import "App/Controllers/Http/Api/Property/property";
 
 Route.get("/", async ({ response }) => {
   return response.json({ data: { project_name: "adonis-next project" } });
