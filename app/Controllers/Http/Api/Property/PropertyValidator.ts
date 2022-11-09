@@ -49,44 +49,6 @@ export default class PropertyValidator {
       conservationStatus: schema.string(),
       status: schema.string(),
       property_photos: schema.array.optional().members(schema.string()),
-
-      // creation_date: schema.date({
-      //   format: "yyyy/MM/dd hh:mm a",
-      // }),
-      // lat: schema.number.optional(),
-      // lang: schema.number.optional(),
-      // location: schema.string.optional(),
-      // media: schema.array.optional().members(
-      //   schema.object().members({
-      //     name: schema.string(),
-      //     type: schema.string(),
-      //   })
-      // ),
-      // user_id: schema.number(),
-      // url_link: schema.string.optional([rules.url()]),
-      // post_type: schema.number(),
-      // // post_strikers: schema.array.optional().members(
-      // //   schema.object().members({
-      // //     id: schema.number(),
-      // //     name: schema.string(),
-      // //   })
-      // // ),
-      // chooseCars: schema.array.optional().members(
-      //   schema.object().members({
-      //     id: schema.number(),
-      //     name: schema.string(),
-      //     color: schema.string(),
-      //     label: schema.string(),
-      //   })
-      // ),
-      // chooseStatePlates: schema.array.optional().members(schema.string()),
-      // chooseSituations: schema.array.optional().members(
-      //   schema.object().members({
-      //     id: schema.number(),
-      //     name: schema.string(),
-      //     intensity: schema.number.optional(),
-      //   })
-      // ),
     });
     return await ctx.request.validate({ schema: propertySchema });
   }
